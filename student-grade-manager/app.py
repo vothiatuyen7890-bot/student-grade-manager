@@ -21,4 +21,5 @@ with app.app_context():
 from routes import *  # Import routes sau khi app được tạo
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))  # Sử dụng PORT từ Railway, mặc định 5000 nếu local
+    app.run(host='0.0.0.0', port=port)
