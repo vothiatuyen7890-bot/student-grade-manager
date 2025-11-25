@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Usage Statistics</h2>
+<table border="1">
+    <tr>
+        <th>User</th>
+        <th>Students Count</th>
+        <th>Grades Count</th>
+    </tr>
+    {% for stat in stats %}
+    <tr>
+        <td>{{ stat.user }}</td>
+        <td>{{ stat.students }}</td>
+        <td>{{ stat.grades }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

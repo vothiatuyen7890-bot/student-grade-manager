@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Manage Grades</h2>
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <label for="student_id">Student ID:</label>
+    <select id="student_id" name="student_id" required>
+        {% for student in students %}
+        <option value="{{ student.id }}">{{ student.name }}</option>
+        {% endfor %}
+    </select><br>
+    {{ form.subject.label }} {{ form.subject() }}<br>
+    {{ form.score.label }} {{ form.score() }}<br>
+    {{ form.submit() }}
+</form>
+<h3>Your Grades</h3>
+<ul>
+    {% for grade in grades %}
+    <li>Student ID: {{ grade.student_id }}, Subject: {{ grade.subject }}, Score: {{ grade.score }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
